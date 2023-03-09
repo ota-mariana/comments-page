@@ -17,10 +17,14 @@ export function Post() {
       </header>
 
       <div className={ style.content }>
-        <p>Hellooo people</p>
+        <p>Hellooo people!</p>
         <p>Acabei de finalizar mais um projeto do Ignite.</p>
-        <p>Vou deixar o link do repositório <a href="">aqui</a> para vocês conferirem</p>
-        <p><a href="">#ignite #rocketseat #dev</a></p>
+        <p>Vou deixar o link do repositório <a href="">aqui</a> para vocês conferirem!</p>
+        <p>
+          <a href="">#ignite</a>{' '}
+          <a href="">#rocketseat</a>{' '}
+          <a href="">#dev</a>
+        </p>
       </div>
     </article>
   )
