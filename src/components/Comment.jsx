@@ -1,0 +1,34 @@
+import { ThumbsUp, Trash } from 'phosphor-react'
+import style from './Comment.module.css'
+
+export function Comment() {
+  return (
+    <div className={ style.comment }>
+      <img src="https://github.com/ota-mariana.png" />
+
+      <div className={ style.commentBox }>
+        <div className={ style.commentContent }>
+          <header>
+            <div className={ style.authorAndTime }>
+              <strong>Mariana Ota</strong>
+              <time title="09 de março às 09:31h" dateTime="2023-03-09 09:31:15">Cerca de 1h atrás</time>
+            </div>
+
+            <button title="Deletar comentário">
+              <Trash size={24} />
+            </button>
+          </header>
+
+          <p>Show demais!!! VQV!</p>
+        </div>
+
+        <footer>
+          <button>
+            <ThumbsUp />
+            Curtir <span>25</span>
+          </button>
+        </footer>
+      </div>
+    </div>
+  )
+}
