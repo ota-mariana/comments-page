@@ -6,11 +6,6 @@ import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import style from './Post.module.css'
 
-const comments = [
-  1,
-  2,
-]
-
 export function Post({ author, publishedAt, content }) {
   const [comments, setComments] = useState(['testando comentários']);
   const [newCommentText, setNewCommentText] = useState('');
@@ -24,15 +19,23 @@ export function Post({ author, publishedAt, content }) {
     addSuffix: true,
   })
 
-  const handleNewComment = () => {
+  const handleNewComment = (event) => {
     event.preventDefault()
 
     setComments([...comments, newCommentText]);
     setNewCommentText('');
   }
 
-  const handleNewCommentChange = () => {
+  const handleNewCommentChange = (event) => {
     setNewCommentText(event.target.value);
+  }
+
+  const deleteComment = (commentToDelete) => {
+    const newListWithoutDeletedComment = comments.filter(comment => {
+      return comment !== commentToDelete;
+    });
+
+    setComments(newListWithoutDeletedComment);
   }
 
   return (
@@ -76,7 +79,13 @@ export function Post({ author, publishedAt, content }) {
 
       <div className={ style.commentList }>
         {comments.map(comment => {
-          return <Comment key={ comment } content={ comment }/>
+          return (
+            <Comment
+              key={ comment }
+              content={ comment }
+              onDeleteComment={ deleteComment }
+            />
+          )
         })}
       </div>
     </article>
